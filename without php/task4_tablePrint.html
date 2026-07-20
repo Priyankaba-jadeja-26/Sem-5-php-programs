@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Table</title>
+    <style>
+        body{
+            background-color: rgb(212, 206, 231);
+            height: 50%;
+            width: 50%;
+        }
+        #result{
+            margin: 10px;
+            border: 3px solid burlywood;
+            height: fit-content;
+            width: fit-content;
+        }
+        h3{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+            color: rgb(95, 37, 32);
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="main-box">
+            <h3>Are you finding any troble in calculating tables..</h3>
+            <h3>Please Enter your number to find it's table</h3>
+            <label>Number: </label>
+            <input type="number" id="number">
+            <button onclick="table()">Get Table</button>
+        </div>
+        <div id="result"></div>
+    </center>
+</body>
+<script>
+    function table(){
+        let number = Number(document.getElementById("number").value);
+
+        let result = "";
+
+        for (let i = 1; i <= 10; i++) {
+            result += number + " x " + i + " = " + (number * i) + "<br>";
+        }
+
+        document.getElementById("result").innerHTML = result;
+    }
+
+</script>
+</html>
