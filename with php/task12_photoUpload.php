@@ -60,6 +60,6 @@
     echo "PHP Script runned.";
     if(isset($_FILES['photo'])){
         $fileName = $_FILES['photo']['name'];
-        echo "$fileName";
+        echo "photo set";
     }
 ?>
