@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body style="background-color: darkgray;">
+    <div style="margin-left: 25%; color: slategrey; background-color: antiquewhite; width: 44%;">
+        
+        <fieldset style="width: 550px;">
+            <h2>Registration Form</h2>
+            <form action="" method="POST">
+
+                <fieldset style="width: 420px;">
+                    <legend>Personal Information</legend>
+
+                    <label for="fname">First Name:</label><br>
+                    <input type="text" id="fullname" name="fname" required><br><br>
+
+                    <label for="mname">Middle Name:</label><br>
+                    <input type="text" id="fullname" name="mname" required><br><br>
+
+                    <label for="lname">Last Name:</label><br>
+                    <input type="text" id="fullname" name="lname" required><br><br>
+
+                    <label for="address">Address:</label><br>
+                    <textarea id="address" name="address" rows="4" cols="30"></textarea><br><br>
+
+                    <label for="gender">Gender:</label><br>
+                    
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label><br><br>
+
+                    <label for="dob">Date of Birth:</label><br>
+                    <input type="date" id="dob" name="dob"><br><br>
+
+                </fieldset>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="username">User Name:</label> <br>
+                <input type="text" name="userName" id="userName" required>
+                <br><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+
+                
+                <label for="country">Country:</label><br>
+                <select id="country" name="country">
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select><br><br>
+
+                
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the Terms and Conditions</label><br><br>
+
+                <input type="submit" value="Register" name="submit">
+                <input type="reset" value="Clear">
+
+            </form>
+        </fieldset>
+    </div>
+    <?php
+        if(isset($_POST['submit'])){
+            $userName = $_POST['userName'];
+            $password = $_POST['password'];
+
+            $fileName = "UserLoginData.csv";
+            $file = fopen($fileName,"a");
+            if(isset($userName)){
+                $data = ["username"=>$userName, "password"=>$password];
+
+                fputcsv($file,$data);
+
+                print_r($data);
+            }
+     
+        }
+    ?>
+</body>
+</html>
