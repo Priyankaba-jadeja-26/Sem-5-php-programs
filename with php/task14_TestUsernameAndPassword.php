@@ -25,9 +25,35 @@
             </form>
 
             <?php
-                $file = fopen("UserLoginData.csv","a");
+                session_start();
 
-                fclose($file);
+                if(isset($_POST['submit'])){
+                    $userName = $_POST['userName'];
+                    $password = $_POST['password'];
+                    $count = 0;
+                    $file = fopen("UserLoginData.csv","r");
+                    //echo "File opened";
+                    while(!feof($file)){
+                        $data = fgetcsv($file);
+
+                        if ($data[0] == $userName && $data[1] == $password){
+                            $count = 1;
+                             echo "<br>";
+                        $_SESSION['userName'] = $userName;
+                        echo "login Successfully.";
+                        echo "<br>";
+                            break;
+                        }
+                    }
+
+                    if($count == 0){
+                        echo "<br>";
+                        echo "Enter valid username and password..";
+                        echo "<br>";
+                    }
+                    fclose($file);
+                }
+                
             ?>
         </fieldset>
     </div>
