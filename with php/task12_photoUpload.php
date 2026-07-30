@@ -29,6 +29,14 @@
             <input type="radio" name="gender" id="Other" value="Other">
             <br><br>
 
+            <label for="userName">UserName</label>
+            <input type="text" name="userName" id="userName" required>
+            <br><br>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <br><br>
+
             <label for="course">Select Course : </label>
             <select name="course" id="course" required>
                 <option value="">------Select Your Course------</option>
@@ -69,7 +77,7 @@
 
         $destination = __DIR__. "/images_php/" . $fileName;
         move_uploaded_file($_FILES['photo']['tmp_name'],$destination);
-        $studData = [ "ID" => $_POST['studID'], "Name" => $_POST['studName'], "gender" => $_POST['gender'], "Course" => $_POST['course'], "MobileNo" => $_POST['mobile'], "Photo" => $_FILES['photo']['name']];
+        $studData = [ "ID" => $_POST['studID'], "Name" => $_POST['studName'], "gender" => $_POST['gender'],"Username" => $_POST['userName'],"Password" => $_POST['password'], "Course" => $_POST['course'], "MobileNo" => $_POST['mobile'], "Photo" => $_FILES['photo']['name']];
 
         fputcsv($file,$studData);
         print_r($studData);
