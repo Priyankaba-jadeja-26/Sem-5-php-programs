@@ -39,9 +39,9 @@
                     echo "<br>";
                     echo "Gender : ".$data[2];
                     echo "<br>";
-                    echo "Student Couse : ".$data[3];
+                    echo "Student Couse : ".$data[5];
 
-                    $path = "/priyanka_xamp/priyanka_php/with%20php/images_php/".$temp_data[5];
+                    $path = "/priyanka_xamp/priyanka_php/with%20php/images_php/".$temp_data[7];
                     //echo $path;
                     echo "<br>";
                     echo "Profile photo of student: ";
