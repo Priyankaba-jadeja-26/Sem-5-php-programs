@@ -1,7 +1,10 @@
 <?php
     session_start();
     //if login is successfull then this page will get opened.
-    if(isset($_SESSION['userName'])){
+    if(!isset($_SESSION['userName'])){
+        header("Location:Task15_StudentLogin.php");
+        exit();
+    }
         $userName = $_SESSION['userName'];
         //echo $userName;
         $file = fopen("Task12_StudentData.csv","r");
@@ -25,10 +28,9 @@
                 $path = "/priyanka_xamp/priyanka_php/with%20php/images_php/".$data[7];
                 echo "<h3> Profile photo : " . "<br>". "<img src=$path alt=$data[7] style=width:200px; height:150px; border:2px solid black;>" ."</h3>";
                 $logoutPath = "/priyanka_xamp/priyanka_php/with%20php/Task15_LogOut.php";
-                echo "<a href= $logoutPath><button> Log Out </button></a>";
+                
+                echo "<form action='Task15_LogOut.php'> <input type='submit'/> </form>";
+                break;
             }
         }
-    } else {
-        //echo "Student not found";
-    }
 ?>
