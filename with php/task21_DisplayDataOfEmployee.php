@@ -13,15 +13,30 @@
             <th>Name</th>
             <th>Department</th>
         </tr>
-        
+
+        <?php
+            $connection = new mysqli("localhost","root","","Employee");
+
+            if($connection->connect_error){
+                die("Error in connecting to the database.". $connection->connect_error);
+            }
+
+            $data = "SELECT * FROM EmployeeData;";
+            $result = mysqli_query($connection,$data);
+            $row = mysqli_fetch_row($result);
+
+            if($result){
+                while($row){
+
+                    echo "<tr>" . "<td>" . "$row[0]" . "</td>" . "<td>" . "$row[1]" . "</td>" . "<td>" . "$row[2]" . "</td>". "</tr>";
+                    $row = mysqli_fetch_row($result);
+                }
+            }
+            
+
+            echo "Everything runned successfully.";
+        ?>
+                
     </table>
 </body>
 </html>
-
-<?php
-    $connection = new mysqli("localhost","root","","Employee");
-
-    if($connection->connect_error){
-        die("Error in connecting to the database.". $connection->connect_error);
-    }
-?>
