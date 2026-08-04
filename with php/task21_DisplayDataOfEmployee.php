@@ -28,7 +28,7 @@
             if($result){
                 while($row){
 
-                    echo "<tr>" . "<td>" . "$row[0]" . "</td>" . "<td>" . "$row[1]" . "</td>" . "<td>" . "$row[2]" . "</td>". "</tr>";
+                    echo "<tr> <td> $row[0] </td> <td> $row[1] </td> <td> $row[2] </td> </tr>";
                     $row = mysqli_fetch_row($result);
                 }
             }
